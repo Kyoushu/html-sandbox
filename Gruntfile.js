@@ -89,6 +89,16 @@ module.exports = function(grunt) {
                 ],
                 dest: 'dist/js/app.js'
             }
+        },
+
+        express: {
+            dist: {
+                options: {
+                    port: 9000,
+                    hostname: '127.0.0.1',
+                    bases: "dist"
+                }
+            }
         }
 
     });
@@ -99,9 +109,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-express');
 
     grunt.registerTask('stylesheet', ['sass', 'cssmin']);
     grunt.registerTask('javascript', ['concat', 'uglify']);
     grunt.registerTask('build', ['stylesheet', 'javascript', 'copy']);
-    grunt.registerTask('default', ['build','watch']);
+    grunt.registerTask('server', ['express', 'express-keepalive']);
+    grunt.registerTask('default', ['build','server','watch']);
 }
