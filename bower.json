@@ -1,0 +1,7 @@
+{
+  "name": "html_sandbox",
+  "dependencies": {
+    "bootstrap-sass": "~3.0",
+    "jquery": ">=2.0"
+  }
+}
