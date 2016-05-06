@@ -50,12 +50,12 @@ module.exports = function(grunt) {
             grunt: { files: ['Gruntfile.js'] },
 
             copy: {
-                files: ['dist/*.html', 'dist/**/*.html'],
+                files: ['src/*.html', 'src/**/*.html'],
                 tasks: ['copy']
             },
 
             sass: {
-                files: ['scss/*.scss', 'scss/**/*.scss'],
+                files: ['src/scss/*.scss', 'src/scss/**/*.scss'],
                 tasks: ['stylesheet']
             },
 
@@ -84,8 +84,8 @@ module.exports = function(grunt) {
                     'bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js',
                     'bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js',
 
-                    'src/js/*.js',
-                    'src/js/**/*.js'
+                    'src/js/app.js',
+                    'src/js/extensions/*.js'
                 ],
                 dest: 'dist/js/app.js'
             }
@@ -114,6 +114,6 @@ module.exports = function(grunt) {
     grunt.registerTask('stylesheet', ['sass', 'cssmin']);
     grunt.registerTask('javascript', ['concat', 'uglify']);
     grunt.registerTask('build', ['stylesheet', 'javascript', 'copy']);
-    grunt.registerTask('server', ['express', 'express-keepalive']);
+    grunt.registerTask('server', ['express']);
     grunt.registerTask('default', ['build','server','watch']);
-}
+};

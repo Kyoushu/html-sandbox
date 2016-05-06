@@ -2,3 +2,7 @@ $icon-font-path: "/fonts/";
 
 $bootstrap-sass-asset-helper: false;
 @import "bootstrap";
+
+.hide{
+  display: none;
+}
